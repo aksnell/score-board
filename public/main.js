@@ -1,5 +1,12 @@
 function handleClick(event) {
 
+  for (section of document.querySelectorAll('section')) {
+    if (section.classList.contains('winner')) {
+      return;
+    }
+  }
+
+
   const button = event.target
   const score = event.currentTarget.querySelector('H3')
 
@@ -7,7 +14,7 @@ function handleClick(event) {
 
   switch(button.classList[0]) {
     case 'add':
-      if (scoreContentInt > 19 && !event.currentTarget.classList.contains('Winner')) {
+      if (scoreContentInt > 19 && !event.currentTarget.classList.contains('winner')) {
         event.currentTarget.classList.add('winner')
         console.log(`${event.currentTarget.classList.contains('team1') ? 'Team 1' : 'Team 2' } won!`)
       }
